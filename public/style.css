@@ -1,0 +1,521 @@
+/* ==========================================================================
+   Design System & Theme Tokens
+   ========================================================================== */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Surfaces & Backgrounds */
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+
+  /* Border Colors */
+  --border-light: #f1f5f9;
+  --border-default: #e2e8f0;
+  --border-medium: #cbd5e1;
+  --border-focus: #2563eb;
+
+  /* Typography Colors */
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-dim: #94a3b8;
+
+  /* Accent & Action Colors */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-ring: rgba(37, 99, 235, 0.15);
+
+  --success: #059669;
+  --success-bg: #ecfdf5;
+
+  --danger-text: #dc2626;
+  --danger-bg: #fef2f2;
+  --danger-border: #fecaca;
+  --danger-hover-bg: #fee2e2;
+  --danger-hover-border: #fca5a5;
+
+  /* Radius & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-header: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* ==========================================================================
+   Base Resets & Global Styles
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Navigation Header
+   ========================================================================== */
+.app-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--shadow-header);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Main Workspace Layout
+   ========================================================================== */
+.main-container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
+  flex: 1;
+}
+
+.page-intro {
+  margin-bottom: 28px;
+}
+
+.page-heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.page-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Form Styling
+   ========================================================================== */
+.form-card form {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-main);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.input-wrapper input::placeholder {
+  color: var(--text-dim);
+}
+
+.input-wrapper input:hover {
+  border-color: #94a3b8;
+}
+
+.input-wrapper input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-ring);
+}
+
+.price-wrapper .currency-symbol {
+  position: absolute;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.price-wrapper input {
+  padding-left: 26px;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 42px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  margin-top: 4px;
+}
+
+.submit-btn:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 2px 4px 0 rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn:active {
+  background-color: var(--primary-active);
+}
+
+.submit-btn svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Table Styling
+   ========================================================================== */
+.table-container {
+  overflow-x: auto;
+  min-height: 220px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead th {
+  background-color: var(--bg-canvas);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border-default);
+  white-space: nowrap;
+}
+
+.col-id {
+  width: 70px;
+}
+
+.col-name {
+  width: auto;
+}
+
+.col-price {
+  width: 130px;
+}
+
+.col-action {
+  width: 150px;
+  text-align: right;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background-color 0.12s ease;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+tbody td {
+  padding: 13px 18px;
+  font-size: 14px;
+  color: var(--text-body);
+  vertical-align: middle;
+}
+
+/* Column 1: ID */
+tbody td:first-child {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+tbody td:first-child::before {
+  content: "#";
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* Column 2: Name */
+tbody td:nth-child(2) {
+  font-weight: 500;
+  color: var(--text-main);
+  word-break: break-word;
+}
+
+/* Column 3: Price */
+tbody td:nth-child(3) {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f766e;
+}
+
+tbody td:nth-child(3)::before {
+  content: "$";
+  font-weight: 400;
+  color: #64748b;
+  margin-right: 1px;
+}
+
+/* Column 4: Actions */
+tbody td:last-child {
+  text-align: right;
+  white-space: nowrap;
+}
+
+tbody td button {
+  padding: 5px 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* Action: Edit */
+tbody td button:first-child {
+  background-color: #ffffff;
+  color: var(--text-body);
+  border: 1px solid var(--border-medium);
+  margin-right: 6px;
+}
+
+tbody td button:first-child:hover {
+  background-color: var(--bg-subtle);
+  border-color: #94a3b8;
+  color: var(--text-main);
+}
+
+tbody td button:first-child:active {
+  background-color: var(--bg-muted);
+}
+
+/* Action: Delete */
+tbody td button:last-child {
+  background-color: var(--danger-bg);
+  color: var(--danger-text);
+  border: 1px solid var(--danger-border);
+}
+
+tbody td button:last-child:hover {
+  background-color: var(--danger-hover-bg);
+  border-color: var(--danger-hover-border);
+}
+
+tbody td button:last-child:active {
+  background-color: #fecaca;
+}
+
+/* ==========================================================================
+   Required Signature Tag: ARYA NANDAN
+   Subtle, clean, and professionally styled at bottom-right
+   ========================================================================== */
+.signature-tag {
+  position: fixed;
+  bottom: 20px;
+  right: 24px;
+  z-index: 9999;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #64748b;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 860px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .main-container {
+    padding: 24px 16px 64px;
+  }
+
+  .page-intro {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 12px 16px;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .page-heading {
+    font-size: 20px;
+  }
+
+  .form-card form {
+    padding: 18px 16px;
+  }
+
+  .signature-tag {
+    bottom: 12px;
+    right: 14px;
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}
